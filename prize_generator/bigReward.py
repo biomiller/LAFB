@@ -16,6 +16,8 @@ def prize():
 	data["prize"] = reward
 	
 	requests.post("http://db_connector:5001/account/createAccount", data)
+	
+	return "OK"
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 9000))
