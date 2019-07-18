@@ -1,7 +1,7 @@
 # Prize Generator
 
 ### Implementations
-* **bigReward.js** is the more generous prize generator which provides bigger rewards (50% chance of getting £50)
+* **bigReward.js** is the more generous prize generator which provides bigger rewards (25% chance of getting £50)
 * **smallReward.js** is the less generous prize generator which provides smaller rewards (25% chance of getting £10)
 
 _Default = bigReward.js_
