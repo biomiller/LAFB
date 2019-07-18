@@ -9,7 +9,8 @@ def prize():
 	if x <= 75:
 		return("£0")
 	else:
-		return("£10")
+		reward = "£10"
+		requests.post("http://notification_server:9000/notify/"+ reward)
 	
 	
 if __name__ == "__main__":

@@ -4,10 +4,10 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route("/notify")
-def hello():
+def notify():
     now = datetime.datetime.now()
     outF = open("prizes.txt", "a")
-    outF.write("A prize has been issued at : " + str(now))
+    outF.write("A prize of has been issued at : " + str(now))
     outF.write("\n")
     return "A Notification has been sent to management"
 

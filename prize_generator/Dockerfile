@@ -8,6 +8,7 @@ ARG REWARD=bigReward.py
 
 # install flask to the container (flask app)
 RUN pip install flask
+RUN pip install requests
 
 # copy the specified prize .py file to run the prize generator
 COPY "${REWARD}" app.py
