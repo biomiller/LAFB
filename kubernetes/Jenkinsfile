@@ -1,1 +1,38 @@
-
+pipeline{
+        agent any
+        stages{
+                stage('---build-prizegen---'){
+                        steps{
+                                sh "docker-compose build prize-generator"
+                        }
+                }
+                stage('---update-prizegen---'){
+                        steps{
+                                sh "kubectl rolling-update prize-generator --image teamdeadweight/prize_generator:smallReward"
+                                //sh "kubectl rolling-update prize-generator --image teamdeadweight/prize_generator:bigReward"
+                        }
+                }
+                stage('---build-textgen---'){
+                        steps{
+                                sh "docker-compose build text-generator"
+                        }
+                }
+                stage('---update-textgen---'){
+                        steps{
+                                sh "kubectl rolling-update text-generator --image teamdeadweight/text_generator:2char"
+                                //sh "kubectl rolling-update text-generator --image teamdeadweight/text_generator:3char"
+                        }
+                }
+                stage('---build-numgen---'){
+                        steps{
+                                sh "docker-compose build number-generator"
+                        }
+                }
+                stage('---update-numgen---'){
+                        steps{
+                                sh "kubectl rolling-update number-generator --image teamdeadweight/number_generator:8digit"
+                                sh "kubectl rolling-update number-generator --image teamdeadweight/number_generator:6digit"
+                        }
+                }
+        }
+}
