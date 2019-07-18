@@ -8,8 +8,8 @@ pipeline{
                 }
                 stage('---update-prizegen---'){
                         steps{
-                                sh "kubectl rolling-update prize-generator --image teamdeadweight/prize_generator:smallReward"
-                                //sh "kubectl rolling-update prize-generator --image teamdeadweight/prize_generator:bigReward"
+                                sh "kubectl set image deployments/prize-generator prize-generator=teamdeadweight/prize_generator:smallReward"
+                                //sh "kubectl set image deployments/prize-generator prize-generator=teamdeadweight/prize_generator:bigReward"
                         }
                 }
                 stage('---build-textgen---'){
@@ -19,8 +19,8 @@ pipeline{
                 }
                 stage('---update-textgen---'){
                         steps{
-                                sh "kubectl rolling-update text-generator --image teamdeadweight/text_generator:2char"
-                                //sh "kubectl rolling-update text-generator --image teamdeadweight/text_generator:3char"
+                                sh "kubectl set image deployments/text-generator text-generator=teamdeadweight/text_generator:2charr"
+                                //sh "kubectl set image deployments/text-generator text-generator=teamdeadweight/text_generator:3char"
                         }
                 }
                 stage('---build-numgen---'){
@@ -30,8 +30,8 @@ pipeline{
                 }
                 stage('---update-numgen---'){
                         steps{
-                                sh "kubectl rolling-update number-generator --image teamdeadweight/number_generator:8digit"
-                                //sh "kubectl rolling-update number-generator --image teamdeadweight/number_generator:6digit"
+                                sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:8digit"
+                                //sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:6digit"
                         }
                 }
         }
