@@ -31,7 +31,7 @@ pipeline{
                 stage('---update-numgen---'){
                         steps{
                                 sh "kubectl rolling-update number-generator --image teamdeadweight/number_generator:8digit"
-                                sh "kubectl rolling-update number-generator --image teamdeadweight/number_generator:6digit"
+                                //sh "kubectl rolling-update number-generator --image teamdeadweight/number_generator:6digit"
                         }
                 }
         }
