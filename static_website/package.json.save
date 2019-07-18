@@ -6,15 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "scripts": {
-    "mystart": "serve -s build",
-    "start": "react-scripts start",
-    "prestart": "npm install -g serve",
-    "local": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  },
   "author": "",
   "license": "ISC",
   "dependencies": {
