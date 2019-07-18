@@ -11,7 +11,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use("/prize", reward);
+app.use("/account", reward);
 
 const port = process.env.PORT || 5002;
 
