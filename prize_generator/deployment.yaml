@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prize_generator
+  name: prize-generator
   labels: 
     app: prize_generator
 spec:
@@ -14,6 +14,7 @@ spec:
         app: prize_generator
     spec:
       containers:
-      - image: teamdeadweight/prize_generator:latest
+      - name: prize-generator
+        image: teamdeadweight/prize_generator:bigReward
         ports:
         - containerPort: 5002

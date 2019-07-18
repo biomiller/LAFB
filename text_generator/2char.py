@@ -4,7 +4,7 @@ import random
 from flask import Flask
 app = Flask(__name__)
 
-@app.route("/text_generator")
+@app.route("/text-generator")
 def chars():
     text = "".join(random.sample(string.ascii_uppercase,2))
     return text

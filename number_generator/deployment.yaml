@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: number_generator
+  name: number-generator
   labels: 
     app: number_generator
 spec:
@@ -14,6 +14,7 @@ spec:
         app: number_generator
     spec:
       containers:
-      - image: teamdeadweight/number_generator:latest
+      - name: number-generator
+        image: teamdeadweight/number_generator:6digit
         ports:
         - containerPort: 9000

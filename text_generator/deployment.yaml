@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: text_generator
+  name: text-generator
   labels: 
     app: text_generator
 spec:
@@ -14,6 +14,7 @@ spec:
         app: text_generator
     spec:
       containers:
-      - image: teamdeadweight/text_generator:latest
+      - name: text-generator
+        image: teamdeadweight/text_generator:3char
         ports:
         - containerPort: 9000

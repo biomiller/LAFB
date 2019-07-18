@@ -21,47 +21,47 @@ docker build -t teamdeadweight/number_generator:8digit --build-arg APP_VERSION=8
 
 docker run -d -p 80:80 --name nginx teamdeadweight/nginx
 
-docker run -d -p 5001:5001 --name db_connector teamdeadweight/db_connector
+docker run -d -p 5001:5001 --name db-connector teamdeadweight/db_connector
 
 docker run -d -p 27017:27017 --name mongo teamdeadweight/mongo
 
 docker run -d -P --name server teamdeadweight/server
 
-docker run -d -P --name static_website teamdeadweight/static_website
+docker run -d -P --name static-website teamdeadweight/static_website
 
-docker run -d -P --name text_generator teamdeadweight/text_generator:2char
-docker run -d -P --name text_generator teamdeadweight/text_generator:3char
+docker run -d -P --name text-generator teamdeadweight/text_generator:2char
+docker run -d -P --name text-generator teamdeadweight/text_generator:3char
 
-docker run -d -P --name prize_generator teamdeadweight/prize_generator:bigReward
-docker run -d -P --name prize_generator teamdeadweight/prize_generator:smallReward
+docker run -d -P --name prize-generator teamdeadweight/prize_generator:bigReward
+docker run -d -P --name prize-generator teamdeadweight/prize_generator:smallReward
 
-docker run -d -P --name number_generator teamdeadweight/number_generator:6digit
-docker run -d -P --name number_generator teamdeadweight/number_generator:8digit
+docker run -d -P --name number-generator teamdeadweight/number_generator:6digit
+docker run -d -P --name number-generator teamdeadweight/number_generator:8digit
 
 # Stop containers
 
 docker stop $(docker ps -aq)
 
 docker stop nginx
-docker stop db_connector
+docker stop db-connector
 docker stop server
 docker stop mongo
-docker stop static_website
-docker stop prize_generator
-docker stop text_generator
-docker stop number_generator
+docker stop static-website
+docker stop prize-generator
+docker stop text-generator
+docker stop number-generator
 
 # Remove Containers
 docker rm $(docker ps -aq)
 
 docker rm nginx
-docker rm db_connector
+docker rm db-connector
 docker rm server
 docker rm mongo
-docker rm static_website
-docker rm prize_generator
-docker rm text_generator
-docker rm number_generator
+docker rm static-website
+docker rm prize-generator
+docker rm text-generator
+docker rm number-generator
 
 # Remove all images
 docker rmi $(docker images -q)

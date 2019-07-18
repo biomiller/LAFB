@@ -7,7 +7,7 @@ data:
     server {
         listen 80;
         location / {
-                proxy_pass http://static_website:8089/;
+                proxy_pass http://static-website:8089/;
         }
         location /server/ {
                 proxy_pass http://server:8080/;

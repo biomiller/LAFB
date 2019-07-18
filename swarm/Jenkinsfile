@@ -1,0 +1,65 @@
+pipeline{
+        agent any
+        stages{
+                stage('---build-prizegen---'){
+                        steps{
+                                sh "docker-compose build prize-generator"
+                        }
+                }
+                stage('---update-prizegen---'){
+                        steps{
+                                sh "docker service update --image teamdeadweight/prize_generator:latest prize-generator"
+                        }
+                }
+                stage('---build-textgen---'){
+                        steps{
+                                sh "docker-compose build text-generator"
+                        }
+                }
+                stage('---update-textgen---'){
+                        steps{
+                                sh "docker service update --image teamdeadweight/text_generator:latest text-generatorr"
+                        }
+                }
+                stage('---build-numgen---'){
+                        steps{
+                                sh "docker-compose build number-generator"
+                        }
+                }
+                stage('---update-numgen---'){
+                        steps{
+                                sh "docker service update --image teamdeadweight/number_generator:latest number-generator"
+                        }
+                }
+                stage('---build-website---'){
+                        steps{
+                                sh "docker-compose build static-website"
+                        }
+                }
+                stage('---update-website---'){
+                        steps{
+                                sh "docker service update --image teamdeadweight/static_website:latest static-website"
+                        }
+                }
+                stage('---build-server---'){
+                        steps{
+                                sh "docker-compose build server"
+                        }
+                }
+                stage('---update-server---'){
+                        steps{
+                                sh "docker service update --image teamdeadweight/server:latest server"
+                        }
+                }
+                stage('---build-notification---'){
+                        steps{
+                                sh "docker-compose build notification-server"
+                        }
+                }
+                stage('---update-notification---'){
+                        steps{
+                                sh "docker service update --image teamdeadweight/notification_server:latest notification-server"
+                        }
+                }          
+        }
+}
