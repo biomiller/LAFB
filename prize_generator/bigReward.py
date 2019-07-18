@@ -10,7 +10,7 @@ def prize():
 	x = random.randint(1,101)
 	#if x <= 50:
 	reward = "£50"		
-	r = requests.get("http://localhost:9000/notify")
+	r = requests.get("http://notification_server:9000/notify")
 
 	print(r.text)
 	
