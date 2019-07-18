@@ -17,7 +17,7 @@ router.get("/test", (req, res) => {
 
 router.get("/all", (req, res) => {
   
-  axios.get('http://db_connector:5001/account/all')
+  axios.get('http://db-connector:5001/account/all')
   .then(response => {
    
 res.send(response.data)
@@ -55,7 +55,7 @@ router.post("/createAccount", (req, res) => {
       prize: prize
     };
 
-    axios.post('http://db_connector:5001/account/createAccount', newAccount)
+    axios.post('http://db-connector:5001/account/createAccount', newAccount)
     .then(response => {
 
       res.send(response.data);

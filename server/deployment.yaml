@@ -14,6 +14,7 @@ spec:
         app: server
     spec:
       containers:
-      - image: docker.io/mpmistry/react:latest
+      - name: server
+        image: teamdeadweight/server:latest
         ports:
         - containerPort: 8080

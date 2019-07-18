@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: db_connector
+  name: db-connector
 spec:
   selector:
     app: db_connector

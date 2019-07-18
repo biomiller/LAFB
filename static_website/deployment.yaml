@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: static_website
+  name: static-website
   labels: 
     app: static_website
 spec:
@@ -14,6 +14,7 @@ spec:
         app: static_website
     spec:
       containers:
-      - image: teandeadweight/static_website:latest
+      - name: static-website
+        image: teamdeadweight/static_website:latest
         ports:
         - containerPort: 8089

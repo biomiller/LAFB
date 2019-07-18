@@ -4,7 +4,7 @@ from random import randint
 from flask import Flask
 app = Flask(__name__)
 
-@app.route("/number_generator")
+@app.route("/number-generator")
 def number():
         num = randint(10000000, 99999999)
         return num

@@ -13,6 +13,8 @@ spec:
       labels:
         app: nginx
     spec:
+      containers:
+      - name: nginx
         image: teamdeadweight/nginx:latest
         ports:
         - containerPort: 80

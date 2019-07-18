@@ -17,7 +17,7 @@ router.get("/test", (req, res) => {
 
 router.get("/all", (req, res) => {
   
-  axios.get('http://db_connector:5001/account/all')
+  axios.get('http://db-connector:5001/account/all')
   .then(response => {
    
 res.send(response.data)
@@ -40,7 +40,7 @@ router.post("/createAccount", (req, res) => {
   if (prizeDecider >= 50){
     prize = "£50";
 
-    axios.get('http://notificationserver:9000/notify').catch(error => {
+    axios.get('http://notification-server:9000/notify').catch(error => {
       console.log(error);
     });
 
@@ -55,7 +55,7 @@ router.post("/createAccount", (req, res) => {
       prize: prize
     };
 
-    axios.post('http://db_connector:5001/account/createAccount', newAccount)
+    axios.post('http://db-connector:5001/account/createAccount', newAccount)
     .then(response => {
 
       res.send(response.data);

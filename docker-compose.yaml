@@ -7,8 +7,8 @@ services:
         ports:
             - {target: 80, published: 80, protocol: tcp}
         depends_on:
-            - static_website
-    static_website:
+            - static-website
+    static-website:
         image: 'teamdeadweight/static_website:latest'
         build:
             context: ./static_website
@@ -16,8 +16,8 @@ services:
         ports:
             - {target: 8089, protocol: tcp}
         depends_on:
-            - prize_generator
-            - text_generator
+            - prize-generator
+            - text-generator
     server:
         image: 'teamdeadweight/server:latest'
         build:
@@ -26,12 +26,12 @@ services:
         ports:
             - {target: 8080, protocol: tcp}
         depends_on:
-            - prize_generator
-            - notification_server
+            - prize-generator
+            - notification-server
 # teamdeadweight/text_generator:latest (default = 3char.py)
 # teamdeadweight/text_generator:3char
 # teamdeadweight/text_generator:2char
-    text_generator:
+    text-generator:
         image: 'teamdeadweight/text_generator:latest'
         build:
             context: ./text_generator
@@ -44,7 +44,7 @@ services:
 # teamdeadweight/number_generator:latest (default = 6digit.py)
 # teamdeadweight/number_generator:6digit
 # teamdeadweight/number_generator:8digit
-    number_generator:
+    number-generator:
         image: 'teamdeadweight/number_generator:latest'
         build:
             context: ./number_generator
@@ -57,7 +57,7 @@ services:
 # teamdeadweight/prize_generator:latest (default = bigReward.py)
 # teamdeadweight/prize_generator:bigReward
 # teamdeadweight/prize_generator:smallReward
-    prize_generator:
+    prize-generator:
         image: 'teamdeadweight/prize_generator:latest'
         build:
             context: ./prize_generator
@@ -66,8 +66,8 @@ services:
         ports:
             - {target: 5002, protocol: tcp}
         depends_on:
-            - db_connector
-    notification_server:
+            - db-connector
+    notification-server:
         image: 'teamdeadweight/notification_server:latest'
         build:
             context: ./notification_server
@@ -75,8 +75,8 @@ services:
         ports:
             - {target: 9000, protocol: tcp}
         depends_on:
-            - prize_generator
-    db_connector:
+            - prize-generator
+    db-connector:
         image: 'teamdeadweight/db_connector:latest'
         build:
             context: ./db_connector
