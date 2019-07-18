@@ -8,20 +8,14 @@ app = Flask(__name__)
 @app.route("/prize", methods=['GET','POST'])
 def prize():
 	x = random.randint(1,101)
-	#if x <= 50:
-	reward = "£50"		
-	r = requests.get("http://notification_server:9000/notify")
-
-	print(r.text)
+	if x <= 50:
+		reward = "£50"		
+		requests.get("http://notification_server:9000/notify") #.content
 	
-	payload = request.get_json(force=True)
-	print(payload)
-	return(payload)
+	data = request.get_json(force=True)
+	data["prize"] = reward
 	
-	
-
-	
-	# requests.post("http://db_connector:9000/account/createAccount", data=data)
+	requests.post("http://db_connector:5001/account/createAccount", data)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 9000))
