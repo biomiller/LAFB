@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: number_generator
+  labels: 
+    app: number_generator
+spec:
+  selector:
+    matchLabels:
+      app: number_generator
+  template:
+    metadata:
+      labels:
+        app: number_generator
+    spec:
+      containers:
+      - image: teamdeadweight/number_generator:latest
+        ports:
+        - containerPort: 9000

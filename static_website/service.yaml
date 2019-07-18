@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: static_website
+spec:
+  selector:
+    app: static_website
+  ports: 
+  - protocol: TCP
+    port: 8089
+  type: ClusterIP

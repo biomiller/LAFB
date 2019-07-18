@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: db_connector
+  labels:
+    app: db_connector
+spec:
+  containers:
+    - name: db_connector
+      image: teamdeadweight/db_connector:latest
+      ports:
+      - containerPort: 5001

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification_server
+  labels: 
+    app: notification_server
+spec:
+  selector:
+    matchLabels:
+      app: notification_server
+  template:
+    metadata:
+      labels:
+        app: notification_server
+    spec:
+      containers:
+      - image: teamdeadweight/notification_server:latest
+        ports:
+        - containerPort: 9000

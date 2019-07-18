@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: static_website
+  labels: 
+    app: static_website
+spec:
+  selector:
+    matchLabels:
+      app: static_website
+  template:
+    metadata:
+      labels:
+        app: static_website
+    spec:
+      containers:
+      - image: teandeadweight/static_website:latest
+        ports:
+        - containerPort: 8089

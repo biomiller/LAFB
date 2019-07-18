@@ -1,6 +1,9 @@
 # Scripts
 Collection of useful commands for containerisation of microservices. All commands to run from root directory.
 
+## jenkins.sh
+Install Jenkins on a VM directly
+
 ## docker.sh
 List of commands for docker:
 * Build images from Dockerfile

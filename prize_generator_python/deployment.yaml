@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prize_generator
+  labels: 
+    app: prize_generator
+spec:
+  selector:
+    matchLabels:
+      app: prize_generator
+  template:
+    metadata:
+      labels:
+        app: prize_generator
+    spec:
+      containers:
+      - image: teamdeadweight/prize_generator:latest
+        ports:
+        - containerPort: 9000

@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mongo-seed
+spec:
+  template:
+    spec:
+      containers:
+      - name: mongo-seed
+        image: teamdeadweight/mongo-seed:latest
+        env:
+        - name: MONGO_HOST
+          value: "mongo"
+        - name: MONGO_PORT
+          value: "27017"
+        command: ["/bin/sh", "-c"]
+        args:
+        - echo "Making directory /data";
+          mkdir /data;
+          echo "Installing curl";
+          apk update;
+          apk add curl;
+          echo "Downloading account.json";
+          cd /data;
+          curl -O "https://raw.githubusercontent.com/biomiller/LAFB/mongo_seed/data/account.json";
+          echo "Populating database";
+          mongoimport --host mongo --port 27017 --db test --mode upsert --type json --file /data/account.json --jsonArray;
+          echo Done;
+      restartPolicy: OnFailure

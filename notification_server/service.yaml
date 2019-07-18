@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification_server
+spec:
+  selector:
+    app: notification_server
+  ports: 
+  - protocol: TCP
+    port: 9000
+  type: ClusterIP

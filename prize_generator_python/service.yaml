@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prize_generator
+spec:
+  selector:
+    app: prize_generator
+  ports: 
+  - protocol: TCP
+    port: 9000
+  type: ClusterIP
