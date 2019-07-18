@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sample Homepage</title>
-</head>
-<body>
-
-    <div class="container">
-       
-            <h1>Landing Page</h1>
-<input placeholder="First Name"></input>
-<br/>
-<input placeholder="Last Name"></input>
-<br/>
-<button>Click to reveal Prize</button>
-        
-    </div>
-
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <title>Sample Homepage</title>
+   </head>
+   <body>
+      <div class="container">
+         <h1>Landing Page</h1>
+         <input id="priFirst" placeholder="First Name"></input>
+         <br>
+         <input id="priLast" placeholder="Last Name"></input>
+         <br>
+         <button type="submit" onclick="getPrize()">Click to reveal Prize</button>
+         <br>
+         <p id="priResult"></p>
+         <br>
+      </div>
+      <br>
+      <br>
+      <button type="submit" onclick="getAllAccounts()">Get All Accounts</button>
+      <br>
+      <br>
+      <p> Create a new account here:</p>
+      <br>
+      <br>
+      <div class="container">
+         <h1> Create Account</h1>
+         <input id="creFirst" placeholder="First Name"></input>
+         <br>
+         <input id="creLast" placeholder="Last Name"></input>
+         <br>
+         <button type="submit" onclick="createAccount()">Create Account</button>
+         <br>
+         <p id="creresult"></p>
+      </div>
+      <script src="script.js"></script>
+   </body>
 </html>

@@ -4,10 +4,10 @@ from random import randint
 from flask import Flask
 app = Flask(__name__)
 
-@app.route("/number_generator")
+@app.route("/number-generator")
 def number():
         num = randint(10000000, 99999999)
-        return num
+        return str(num)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 9000))

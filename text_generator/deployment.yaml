@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: text-generator
+  labels: 
+    app: text_generator
+spec:
+  selector:
+    matchLabels:
+      app: text_generator
+  template:
+    metadata:
+      labels:
+        app: text_generator
+    spec:
+      containers:
+      - name: text-generator
+        image: teamdeadweight/text_generator:3char
+        ports:
+        - containerPort: 9000

@@ -1,19 +1,19 @@
-# python base image
-FROM python
+# node base image
+FROM node:10
 
-# argument to select the prize generator
-# bigReward.py (generous bigger rewards)
-# smallReward.py (less generous smaller rewards)
-ARG REWARD=bigReward.py
+# prize generator implementation
+ARG REWARD=bigReward.js
 
-# install flask to the container (flask app)
-RUN pip install flask
+WORKDIR /usr/src/app
 
-# copy the specified prize .py file to run the prize generator
-COPY "${REWARD}" app.py
+COPY package*.json ./
 
-# communication over port 9000
-EXPOSE 9000
+RUN npm install
 
-# run the application
-ENTRYPOINT ["python", "app.py"]
+COPY . .
+
+# copy and rename prize generator implementation to use
+RUN cp ./routes/${REWARD} ./routes/reward.js
+
+EXPOSE 5002
+ENTRYPOINT [ "node", "server.js" ]
