@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prizegenerator
+  name: prize-generator
   labels: 
     app: prize_generator
 spec:
