@@ -139,5 +139,10 @@ pipeline{
                                 sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:6digit"
                         }
                 }
+                stage('---set-numgen---'){
+                        steps{
+                                sh "kubectl set image deployments/static-website static-website=teamdeadweight/static_website:latest"
+                        }
+                }
         }
 }
