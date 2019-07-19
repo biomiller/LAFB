@@ -8,6 +8,9 @@ services:
             - {target: 80, published: 80, protocol: tcp}
         depends_on:
             - static-website
+        deploy:
+         placement:
+          constraints: [node.role == manager]            
     static-website:
         image: 'teamdeadweight/static_website:latest'
         build:
@@ -92,3 +95,6 @@ services:
         image: 'teamdeadweight/mongo:latest'
         ports:
             - {target: 27017, protocol: tcp, published: 27017}
+        deploy:
+         placement:
+          constraints: [node.role == manager]
