@@ -9,26 +9,26 @@ az aks get-credentials --name [AKS_NAME] -g [GROUP]
 
 cd ~/LAFB
 
-kubectl apply -f ./mongo/pod.yaml
-kubectl apply -f ./mongo/service.yaml
+kubectl apply -f ./mongo/
 
-kubectl apply -f /prize-generator/deployment.yaml
-kubectl apply -f ./prize-generator/service.yaml
+kubectl apply -f /db-connector/
 
-kubectl apply -f ./server/deployment.yaml
-kubectl apply -f ./server/service.yaml
+kubectl apply -f /prize-generator/
 
-kubectl apply -f ./notification-server/deployment.yaml
-kubectl apply -f ./notification-server/service.yaml
+kubectl apply -f /number-generator/
 
-kubectl apply -f ./text-generator/deployment.yaml
-kubectl apply -f ./text-generator/service.yaml
+kubectl apply -f ./server/
 
-kubectl apply -f ./static-website/deployment.yaml
-kubectl apply -f ./static-website/service.yaml
+kubectl apply -f ./notification-server/
 
-kubectl apply -f ./nginx/deployment.yaml
-kubectl apply -f ./nginx/service.yaml
+kubectl apply -f ./text-generator/
+
+kubectl apply -f ./static-website/
+
+kubectl apply -f ./jenkins/
+
+kubectl apply -f ./nginx/
+
 
 
 
