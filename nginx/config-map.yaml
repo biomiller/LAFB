@@ -13,7 +13,7 @@ data:
                 proxy_pass http://server:8080/;
         }
         location /jenkins/ {
-            proxy_pass http://jenkins:8080;
+            proxy_pass http://jenkins:8080/;
             proxy_read_timeout  90;
             proxy_set_header X-Forwarded-Host $host:$server_port;
             proxy_set_header X-Forwarded-Server $host;
