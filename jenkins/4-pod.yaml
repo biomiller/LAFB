@@ -12,7 +12,7 @@ spec:
     - name: jenkins
       securityContext:
         runAsUser: 1000
-      image: teamdeadweight/jenkins:latest
+      image: jenkins/jenkins:latest
       ports:
       - containerPort: 8080
       env:
