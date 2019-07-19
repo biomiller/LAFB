@@ -3,7 +3,7 @@ pipeline{
         stages{
                 stage('---build-prizegen---'){
                         steps{
-                                sh "docker-compose build prize-generator"
+                                sh "sudo docker-compose build prize-generator"
                         }
                 }
                 stage('---update-prizegen---'){
@@ -14,7 +14,7 @@ pipeline{
                 }
                 stage('---build-textgen---'){
                         steps{
-                                sh "docker-compose build text-generator"
+                                sh "sudo docker-compose build text-generator"
                         }
                 }
                 stage('---update-textgen---'){
@@ -25,7 +25,7 @@ pipeline{
                 }
                 stage('---build-numgen---'){
                         steps{
-                                sh "docker-compose build number-generator"
+                                sh "sudo docker-compose build number-generator"
                         }
                 }
                 stage('---update-numgen---'){
