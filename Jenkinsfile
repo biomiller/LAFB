@@ -21,9 +21,19 @@ pipeline{
                                 sh "sudo docker-compose build number-generator"
                         }
                 }
+                stage('---push-mongo---'){
+                        steps{
+                                sh "sudo docker push teamdeadweight/mongo:latest"
+                        }
+                }
                 stage('---push-numgen---'){
                         steps{
                                 sh "sudo docker push teamdeadweight/number_generator:latest"
+                        }
+                }
+                stage('---apply-mongo---'){
+                        steps{
+                                sh "kubectl apply -f mongo/pod.yaml -f mongo/service.yaml"
                         }
                 }
                 stage('---apply-numgen---'){
