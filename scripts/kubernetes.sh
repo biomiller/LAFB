@@ -29,6 +29,8 @@ kubectl apply -f ./jenkins/
 
 kubectl apply -f ./nginx/
 
+#kubectl rollout undo deployments/nginx
+
 
 
 
