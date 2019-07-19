@@ -6,6 +6,11 @@ pipeline{
                                 sh "sudo docker-compose build mongo"
                         }
                 }
+                stage('---build-db-connector---'){
+                        steps{
+                                sh "sudo docker-compose build db-connector"
+                        }
+                }
                 stage('---build-prizegen---'){
                         steps{
                                 sh "sudo docker-compose build prize-generator"
@@ -26,6 +31,11 @@ pipeline{
                                 sh "sudo docker push teamdeadweight/mongo:latest"
                         }
                 }
+                stage('---push-db-connector---'){
+                        steps{
+                                sh "sudo docker push teamdeadweight/db_connector:latest"
+                        }
+                }
                 stage('---push-numgen---'){
                         steps{
                                 sh "sudo docker push teamdeadweight/number_generator:latest"
@@ -34,6 +44,11 @@ pipeline{
                 stage('---apply-mongo---'){
                         steps{
                                 sh "kubectl apply -f mongo/pod.yaml -f mongo/service.yaml"
+                        }
+                }
+                stage('---apply-db-connector---'){
+                        steps{
+                                sh "kubectl apply -f db_connector/pod.yaml -f db_connector/service.yaml"
                         }
                 }
                 stage('---apply-numgen---'){
