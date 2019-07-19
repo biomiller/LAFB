@@ -1,11 +1,4 @@
-
-# RUN KUBERNETES
-
-az group create --name [GROUP]
-
-az aks create --name [AKS_NAME] -g [GROUP]
-
-az aks get-credentials --name [AKS_NAME] -g [GROUP]
+#!/bin/bash
 
 cd ~/LAFB
 
@@ -29,7 +22,7 @@ kubectl apply -f ./jenkins/
 
 kubectl apply -f ./nginx/
 
-#kubectl rollout undo deployments/nginx
+
 
 
 
