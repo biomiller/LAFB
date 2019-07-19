@@ -21,6 +21,11 @@ pipeline{
                                 sh "sudo docker-compose build notification-server"
                         }
                 }
+                stage('---build-server---'){
+                        steps{
+                                sh "sudo docker-compose build server"
+                        }
+                }
                 stage('---build-textgen---'){
                         steps{
                                 sh "sudo docker-compose build text-generator"
@@ -51,6 +56,11 @@ pipeline{
                                 sh "sudo docker push teamdeadweight/notification_server:latest"
                         }
                 }
+                stage('---push-server---'){
+                        steps{
+                                sh "sudo docker push teamdeadweight/server:latest"
+                        }
+                }
                 stage('---push-numgen---'){
                         steps{
                                 sh "sudo docker push teamdeadweight/number_generator:latest"
@@ -74,6 +84,11 @@ pipeline{
                 stage('---apply-notification-server---'){
                         steps{
                                 sh "kubectl apply -f notification_server/deployment.yaml -f notification_server/service.yaml"
+                        }
+                }
+                stage('---apply-server---'){
+                        steps{
+                                sh "kubectl apply -f server/deployment.yaml -f server/service.yaml"
                         }
                 }
                 stage('---apply-numgen---'){
