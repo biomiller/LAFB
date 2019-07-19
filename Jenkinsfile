@@ -36,6 +36,11 @@ pipeline{
                                 sh "sudo docker-compose build number-generator"
                         }
                 }
+                stage('---build-static-website---'){
+                        steps{
+                                sh "sudo docker-compose build static-website"
+                        }
+                }
                 stage('---push-mongo---'){
                         steps{
                                 sh "sudo docker push teamdeadweight/mongo:latest"
@@ -71,6 +76,11 @@ pipeline{
                                 sh "sudo docker push teamdeadweight/number_generator:latest"
                         }
                 }
+                stage('---push-static-website---'){
+                        steps{
+                                sh "sudo docker push teamdeadweight/static_website:latest"
+                        }
+                }
                 stage('---apply-mongo---'){
                         steps{
                                 sh "kubectl apply -f mongo/pod.yaml -f mongo/service.yaml"
@@ -104,6 +114,11 @@ pipeline{
                 stage('---apply-numgen---'){
                         steps{
                                 sh "kubectl apply -f number_generator/deployment.yaml -f number_generator/service.yaml"
+                        }
+                }
+                stage('---apply-static-website---'){
+                        steps{
+                                sh "kubectl apply -f static_website/deployment.yaml -f static_website/service.yaml"
                         }
                 }
                 stage('---set-prizegen---'){
