@@ -11,9 +11,9 @@ cd ~/LAFB
 
 kubectl apply -f ./mongo/
 
-kubectl apply -f /db_connector/
+kubectl apply -f ./db_connector/
 
-kubectl apply -f /prize_generator/
+kubectl apply -f ./prize_generator/
 
 kubectl apply -f /number_generator/
 
