@@ -16,6 +16,11 @@ pipeline{
                                 sh "sudo docker-compose build prize-generator"
                         }
                 }
+                stage('---build-notification-server---'){
+                        steps{
+                                sh "sudo docker-compose build notification-server"
+                        }
+                }
                 stage('---build-textgen---'){
                         steps{
                                 sh "sudo docker-compose build text-generator"
@@ -36,6 +41,16 @@ pipeline{
                                 sh "sudo docker push teamdeadweight/db_connector:latest"
                         }
                 }
+                stage('---push-prize-gen---'){
+                        steps{
+                                sh "sudo docker push teamdeadweight/prize_generator:latest"
+                        }
+                }
+                stage('---push-notification-server---'){
+                        steps{
+                                sh "sudo docker push teamdeadweight/notification_server:latest"
+                        }
+                }
                 stage('---push-numgen---'){
                         steps{
                                 sh "sudo docker push teamdeadweight/number_generator:latest"
@@ -49,6 +64,16 @@ pipeline{
                 stage('---apply-db-connector---'){
                         steps{
                                 sh "kubectl apply -f db_connector/pod.yaml -f db_connector/service.yaml"
+                        }
+                }
+                stage('---apply-prize-generator---'){
+                        steps{
+                                sh "kubectl apply -f prize_generator/deployment.yaml -f prize_generator/service.yaml"
+                        }
+                }
+                stage('---apply-notification-server---'){
+                        steps{
+                                sh "kubectl apply -f notification_server/deployment.yaml -f notification_server/service.yaml"
                         }
                 }
                 stage('---apply-numgen---'){
