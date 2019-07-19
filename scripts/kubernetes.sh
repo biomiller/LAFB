@@ -30,5 +30,7 @@ kubectl apply -f ./static-website/service.yaml
 kubectl apply -f ./nginx/deployment.yaml
 kubectl apply -f ./nginx/service.yaml
 
+# kubectl rollout undo deployments/nginx
+
 
 
