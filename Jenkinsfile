@@ -16,6 +16,16 @@ pipeline{
                                 sh "sudo docker-compose build number-generator"
                         }
                 }
+                stage('---push-numgen---'){
+                        steps{
+                                sh "sudo docker push teamdeadweight/number_generator:latest"
+                        }
+                }
+                stage('---apply-numgen---'){
+                        steps{
+                                sh "kubectl apply -f number_generator/deployment.yaml -f number_generator/service.yaml"
+                        }
+                }
                 stage('---update-prizegen---'){
                         steps{
                                 sh "kubectl set image deployments/prize-generator prize-generator=teamdeadweight/prize_generator:smallReward"
@@ -30,7 +40,7 @@ pipeline{
                 }                
                 stage('---update-numgen---'){
                         steps{
-                                sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:8digit"
+                                //sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:8digit"
                                 //sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:6digit"
                         }
                 }
