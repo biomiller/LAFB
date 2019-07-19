@@ -1,6 +1,11 @@
 pipeline{
         agent any
         stages{
+                stage('---build-mongo---'){
+                        steps{
+                                sh "sudo docker-compose build mongo"
+                        }
+                }
                 stage('---build-prizegen---'){
                         steps{
                                 sh "sudo docker-compose build prize-generator"
