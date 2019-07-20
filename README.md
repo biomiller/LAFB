@@ -50,7 +50,7 @@ Find the public IP:
 
 `kubectl get services | grep nginx | tr -s [:space:] | cut -d " " -f4`
 
-Open up a web browser (eg Chrome), enter your copied public IP address into the address bar.
+Open up a web browser (eg Chrome), copy the public IP address into the address bar.
 
 ## Configure Jenkins
 
@@ -58,3 +58,20 @@ Shell into the Jenkins pod:
 
 `kubectl exec -it jenkins bash`
 
+Log in to Docker (set up an account on [Docker Hub](https://hub.docker.com/) if not done so):
+
+`sudo docker login`
+
+**_All references to docker images in the yaml files will need to be changed to your dockerhub username._**
+
+Add Jenkins to the Docker group:
+
+`sudo usermod -aG docker jenkins`
+
+Exit the Jenkins pod and return to the cloud shell:
+
+`exit`
+
+Restart the Jenkins container:
+
+`docker restart jenkins`
