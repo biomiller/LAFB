@@ -15,3 +15,23 @@ Create a new **Azure Kubernetes Service (AKS)** named **LAFB-AKS** with two node
 Enable Kubernetes commands via **get-credentials**:
 
 `az aks get-credentials --name LAFB-AKS-g LAFB`
+
+## Clone this repository
+
+In the cloud shell:
+
+`git clone https://github.com/biomiller/LAFB.git`
+
+Change directory into LAFB:
+
+`cd LAFB`
+
+## Start Kubernetes services
+
+Change permisions on kubernetes.sh:
+
+`chmod 710 ./scripts/kubernetes.sh`
+
+Run kubernetes.sh:
+
+`./scripts/kubernetes.sh`
