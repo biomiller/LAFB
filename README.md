@@ -35,3 +35,26 @@ Change permisions on kubernetes.sh:
 Run kubernetes.sh:
 
 `./scripts/kubernetes.sh`
+
+Check all services are running (this may take a few minutes):
+
+`kubectl get services`
+
+Check all pods are running (this may take a few minutes):
+
+`kubectl get pods`
+
+## Find your website public IP
+
+Find the public IP:
+
+`kubectl get services | grep nginx | tr -s [:space:] | cut -d " " -f4`
+
+Open up a web browser (eg Chrome), enter your copied public IP address into the address bar.
+
+## Configure Jenkins
+
+Shell into the Jenkins pod:
+
+`kubectl exec -it jenkins bash`
+
