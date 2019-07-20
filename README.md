@@ -28,7 +28,7 @@ Change directory into LAFB:
 
 ## Start Kubernetes services
 
-Change permisions on kubernetes.sh:
+Change permissions on kubernetes.sh:
 
 `chmod 710 ./scripts/kubernetes.sh`
 
