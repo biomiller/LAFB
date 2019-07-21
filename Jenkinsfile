@@ -138,6 +138,6 @@ pipeline{
                                 //sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:8digit"
                                 sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:6digit"
                         }
-                }
+                }                
         }
 }
