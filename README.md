@@ -1,5 +1,26 @@
 # Setup Instructions
 
+## Set up a Virtual Machine (VM) in Azure
+
+In [Azure](https://azure.microsoft.com/en-gb/) log in, navigate to the **portal** and open up a new **cloud shell** instance. 
+
+
+## Clone this repository to your new VM 
+
+In the cloud shell:
+
+`git clone https://github.com/biomiller/LAFB.git`
+
+Change directory into LAFB:
+
+`cd LAFB`
+
+## Instal Docker and Docker-compose onto your machine
+
+## Set up a docker-compose job
+
+## Set up a docker-swarm job
+
 ## Set up an Azure Kubernetes Service
 
 In [Azure](https://azure.microsoft.com/en-gb/) log in, navigate to the **portal** and open up a new **cloud shell** instance. 
@@ -16,15 +37,7 @@ Enable Kubernetes commands via **get-credentials**:
 
 `az aks get-credentials --name LAFB-AKS -g LAFB`
 
-## Clone this repository
-
-In the cloud shell:
-
-`git clone https://github.com/biomiller/LAFB.git`
-
-Change directory into LAFB:
-
-`cd LAFB`
+Clone this repository down to the Azure shell with the above commands
 
 ## Start Kubernetes services
 
@@ -72,5 +85,12 @@ Exit the Jenkins pod and return to the cloud shell:
 
 `exit`
 
-Restart the Jenkins pod:
+Restart the Jenkins container:
 
+`docker restart jenkins`
+
+## setting up a freestyle job in Jenkins
+
+## Creating a Webhook for the Jenkins job
+
+## Setting up a pipeline job in Jenkins
