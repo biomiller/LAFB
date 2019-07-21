@@ -1,3 +1,13 @@
+#Little Anchorage First Bank (LAFB)
+
+## Old Architecture
+
+![old_architecture](https://github.com/biomiller/LAFB/blob/readme/readme_images/initialarch.png)
+
+## New Architecture
+
+![new_architecture](https://github.com/biomiller/LAFB/blob/readme/readme_images/finalarch.png)
+
 # Setup Instructions
 
 ## Clone this repository
