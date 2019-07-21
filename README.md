@@ -4,6 +4,19 @@
 
 In [Azure](https://azure.microsoft.com/en-gb/) log in, navigate to the **portal** and open up a new **cloud shell** instance. 
 
+`az group create --name vmGroup`
+
+Create a new Linux **Virtual Machine (VM)** named **Machine1**:
+
+`az vm create -g vmGroup --name Machine1 --image UbuntuLts --generate-ssh-keys`
+
+To load into this new VM you will need to find its **IP address** with the following:
+
+`az vm list-ip-addresses -g vmGroup -n Machine1 | grep ipAddress | cut -d '"' -f4 `
+
+Now load into the VM:
+
+`ssh IP_address`
 
 ## Clone this repository to your new VM 
 
