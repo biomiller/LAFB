@@ -164,6 +164,7 @@ For example, by commenting out (by adding `//` to the start of the line) **line 
 Scale up or down a deployment by specifying the number of replicas:
 
 `kubectl scale --replicas=3 deployment/server`
+
 `kubectl scale --replicas=2 deployment/number-generator`
 `kubectl scale --replicas=1 deployment/number-generator`
 
