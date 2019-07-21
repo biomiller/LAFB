@@ -101,7 +101,7 @@ As the Jenkins home page loads, you will be prompted to create a new job, for th
 Inside this, there are several features that we would like to change, the first of which is the **source code management**.
 For this example we are using a git repository selecting the git option you will be prompted to enter a git URL and specify which branch to look as shown in the image below
 
----------INSERT IMAGE--------
+![source code management](https://github.com/biomiller/LAFB/blob/readme/readme_images/scm.png)
 
 Enter the git URL for this repository as shown. When **specifying branches**, the master branch is added by default, however, this can be replaced with another branch that you are working on or other branches that you are developing on. 
 Next, we want to tell Jenkins what to do when building the application, therefore we want to specify how we are going to build the job with a list of shell commands.
