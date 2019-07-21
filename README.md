@@ -89,8 +89,8 @@ Restart the Jenkins container:
 
 `docker restart jenkins`
 
-## setting up a freestyle job in Jenkins
+## Set up a freestyle job in Jenkins
 
 ## Creating a Webhook for the Jenkins job
 
-## Setting up a pipeline job in Jenkins
+## Set up a pipeline job in Jenkins
