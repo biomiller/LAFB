@@ -106,7 +106,7 @@ For this example we are using a git repository selecting the git option you will
 Enter the git URL for this repository as shown. When **specifying branches**, the master branch is added by default, however, this can be replaced with another branch that you are working on or other branches that you are developing on. 
 Next, we want to tell Jenkins what to do when building the application, therefore we want to specify how we are going to build the job with a list of shell commands.
 
----------INSERT IMAGE--------
+![freestyle build steps](https://github.com/biomiller/LAFB/blob/readme/readme_images/build-step.png)
 
 Select the option as in the image above and insert the build commands for the containerisation project you wish to deploy. Scripts for [docker-compose](https://github.com/biomiller/LAFB/blob/master/scripts/compose.sh), [docker swarm](https://github.com/biomiller/LAFB/blob/master/scripts/swarm.sh) and [Kuberntes](https://github.com/biomiller/LAFB/blob/master/scripts/kubernetes.sh) can be found in the links. 
 
@@ -115,4 +115,39 @@ Apply and save your changes to the configuration and now your job is ready to bu
 
 ## Creating a Webhook for the Jenkins job
 
+While Jenkins solves a lot of automation problems for developers, going into Jenkins and manually triggering a build takes just as much time as running a script locally every time a change is committed.
+To automate this feature, even more, we can create something called a webhook, which will set up a way for your GitHub repository to talk to Jenkins and tell it when a change has been made on the branches specified in the previous step. When a change is notified Jenkins will begin to build the deployment with no prompting from the user.
+To set up the webhook go back into the configuration for your job and go down to build triggers as shown below
+
+![Webhook](https://github.com/biomiller/LAFB/blob/readme/readme_images/token.png)
+
+Take note of the URL trigger under the input box:
+
+`JENKINS_URL/job/ne/build?token=TOKEN_NAME`
+
+This is the format in which you shall set up the webhook inside your git repository, where TOKEN_NAME is what you insert into the input box in the image above, qwerty for this example. The Jenkins URL has the form: 
+
+`http://[username]:[password]@Vm_ip_address:8080/job/etc…`
+
+Where the username and passwords are those for the current user, admin:admin as previously stated.
+Before leaving Jenkins we would to change its security so that communication with the webhook can be allowed by following this path from the Jenkins home page: 
+
+`Manage Jenkins > Configure Global security > disable CSRF protection`
+
+Now, inside your git repository go into secutiry-webhooks to setup the webhook and insert the webhook as discussed into the input box. For this example and a build job with the name newJob the url would have the form: 
+
+ `http://admin:admin@Vm_ip_address:8080/job/newJob/build?token=qwerty`
+
+Now save this url and at the bottom of the page you will be able to deploy this webhook. Now head back over to Jenkins and if you have followed these steps the application should be building.
+
+
 ## Set up a pipeline job in Jenkins
+
+While a freestyle job is good, a pipeline job is leaps and bounds better for automation of deployment. Inside a freestyle job should you wish to change something inside the building stage, you would need to go into Jenkins, configure the job, edit the build steps and then trigger a build. 
+With a pipeline job, however, we create a document called a Jenkinsfile which contains the same commands as with the freestyle job however there is much more freedom assigned with this method. The most prominent of which is that the file exists in the root directory of the git repository so and changes made to it will trigger the build in Jenkins. 
+Setting up a pipeline job is similar to the freestyle job except instead of build option we have an option called pipeline. In this we simply point to the git repositoy and branch where the Jenkinsfile is located for the build to run.
+
+![pipeline](https://github.com/biomiller/LAFB/blob/readme/readme_images/pipeline.png)
+
+This will point to the Jenkinsfile(link) in this repository to trigger the build. With this, the pipeline job is fully setup and the application is fully ready to be deployed.
+
