@@ -74,9 +74,13 @@ Exit the Jenkins pod and return to the cloud shell:
 
 `exit`
 
-Restart the Jenkins container:
+Navigate to the Jenkins webpage (add /jenkins to your public IP address).
 
-`docker restart jenkins`
+Find the initial admin password:
+
+`kubectl exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword`
+
+Copy this password and enter it when asked.
 
 ## Set up a freestyle job in Jenkins
 Access Jenkins through the websites public IP that you acquired in a previous section: 
