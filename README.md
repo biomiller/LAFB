@@ -72,6 +72,5 @@ Exit the Jenkins pod and return to the cloud shell:
 
 `exit`
 
-Restart the Jenkins container:
+Restart the Jenkins pod:
 
-`docker restart jenkins`
