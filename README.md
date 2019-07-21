@@ -155,5 +155,7 @@ This will point to the [Jenkinsfile](https://github.com/biomiller/LAFB/blob/mast
 
 ## Version switching
 
-It is possible to switch between different implementations of the text generator, number generator and prize generator services by changing certain lines in the [Jenkinsfile](https://github.com/biomiller/LAFB/blob/master/Jenkinsfile). For example, by commenting out (by adding `//` to the start of the line) **line 126** and uncommenting (deleting the `//` at the start of the line) **line 127** the **prize generator** app will switch from issuing a *small reward* to issuing a *big reward*.
+It is possible to switch between different implementations of the text generator, number generator and prize generator services by changing certain lines in the [Jenkinsfile](https://github.com/biomiller/LAFB/blob/master/Jenkinsfile).
+
+For example, by commenting out (by adding `//` to the start of the line) **line 126** and uncommenting (deleting the `//` at the start of the line) **line 127** the **prize generator** app will switch from issuing a *small reward* to issuing a *big reward*.
 
