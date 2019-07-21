@@ -153,3 +153,7 @@ Setting up a pipeline job is similar to the freestyle job except instead of buil
 
 This will point to the [Jenkinsfile](https://github.com/biomiller/LAFB/blob/master/Jenkinsfile) in this repository to trigger the build. With this, the pipeline job is fully setup and the **application is fully ready to be deployed**.
 
+## Version switching
+
+It is possible to switch between different implementations of the text generator, number generator and prize generator services by changing certain lines in the [Jenkinsfile](https://github.com/biomiller/LAFB/blob/master/Jenkinsfile). For example, by commenting out (by adding `//` to the start of the line) line 126 and uncommenting (deleting the `//` at the start of the line) line 127 the prize generator app will switch from issuing a small reward to issuing a big reward.
+
