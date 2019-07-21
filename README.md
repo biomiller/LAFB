@@ -159,3 +159,14 @@ It is possible to switch between different implementations of the text generator
 
 For example, by commenting out (by adding `//` to the start of the line) **line 126** and uncommenting (deleting the `//` at the start of the line) **line 127** the **prize generator** app will switch from issuing a *small reward* to issuing a *big reward*.
 
+## Scale a deployment
+
+Scale up or down a deployment by specifying the number of replicas:
+
+`kubectl scale --replicas=3 deployment/server`
+`kubectl scale --replicas=2 deployment/number-generator`
+`kubectl scale --replicas=1 deployment/number-generator`
+
+Confirm a scale command has worked by viewing the active pods:
+
+`kubectl get pods`
