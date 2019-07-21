@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd ~/LAFB
-
 kubectl apply -f ./mongo/
 
 kubectl apply -f ./db_connector/
