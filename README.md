@@ -10,7 +10,7 @@ Create a new **resource group** named **LAFB**:
 
 Create a new **Azure Kubernetes Service (AKS)** named **LAFB-AKS** with two nodes:
 
-`az aks create --name LAFB-AKS -g LAFB--node-count 2`
+`az aks create --name LAFB-AKS -g LAFB --node-count 2`
 
 Enable Kubernetes commands via **get-credentials**:
 
