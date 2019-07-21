@@ -97,13 +97,13 @@ Inside this, there are several features that we would like to change, the first 
 
 For this example we are using a git repository selecting the git option you will be prompted to enter a git URL and specify which branch to look as shown in the image below
 
-![source code management](https://github.com/biomiller/LAFB/blob/readme/readme_images/scm.png)
+![source code management](https://github.com/biomiller/LAFB/blob/master/readme_images/scm.png)
 
 Enter the git URL for this repository as shown. When **specifying branches**, the master branch is added by default, however, this can be replaced with another branch that you are working on or other branches that you are developing on.
 
 Next, we want to tell Jenkins what to do when building the application, therefore we want to specify how we are going to build the job with a list of shell commands.
 
-![freestyle build steps](https://github.com/biomiller/LAFB/blob/readme/readme_images/build-step.png)
+![freestyle build steps](https://github.com/biomiller/LAFB/blob/master/readme_images/build-step.png)
 
 Select the option as in the image above and insert the build commands for the containerisation project you wish to deploy. Scripts for [docker-compose](https://github.com/biomiller/LAFB/blob/master/scripts/compose.sh), [docker swarm](https://github.com/biomiller/LAFB/blob/master/scripts/swarm.sh) and [Kuberntes](https://github.com/biomiller/LAFB/blob/master/scripts/kubernetes.sh) can be found in the links. 
 
@@ -119,7 +119,7 @@ To automate this feature, even more, we can create something called a webhook, w
 
 To set up the webhook go back into the configuration for your job and go down to build triggers as shown below
 
-![Webhook](https://github.com/biomiller/LAFB/blob/readme/readme_images/token.png)
+![Webhook](https://github.com/biomiller/LAFB/blob/master/readme_images/token.png)
 
 Take note of the URL trigger under the input box:
 
@@ -149,7 +149,7 @@ With a pipeline job, however, we create a document called a **Jenkinsfile** whic
 
 Setting up a pipeline job is similar to the freestyle job except instead of build option we have an option called pipeline. In this we simply point to the git repositoy and branch where the Jenkinsfile is located for the build to run.
 
-![pipeline](https://github.com/biomiller/LAFB/blob/readme/readme_images/pipeline.png)
+![pipeline](https://github.com/biomiller/LAFB/blob/master/readme_images/pipeline.png)
 
 This will point to the [Jenkinsfile](https://github.com/biomiller/LAFB/blob/master/Jenkinsfile) in this repository to trigger the build. With this, the pipeline job is fully setup and the **application is fully ready to be deployed**.
 
