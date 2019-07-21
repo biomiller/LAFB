@@ -8,7 +8,7 @@ kubectl apply -f ./db_connector/
 
 kubectl apply -f ./prize_generator/
 
-kubectl apply -f /number_generator/
+kubectl apply -f ./number_generator/
 
 kubectl apply -f ./server/
 
