@@ -2,7 +2,9 @@
 
 ## Clone this repository
 
-In the cloud shell:
+In [Azure](https://azure.microsoft.com/en-gb/) log in, navigate to the **portal** and open up a new **cloud shell** instance.
+
+Download this repository:
 
 `git clone https://github.com/biomiller/LAFB.git`
 
@@ -11,8 +13,6 @@ Change directory into LAFB:
 `cd LAFB`
 
 ## Set up an Azure Kubernetes Service
-
-In [Azure](https://azure.microsoft.com/en-gb/) log in, navigate to the **portal** and open up a new **cloud shell** instance. 
 
 Create a new **resource group** named **LAFB**:
 
