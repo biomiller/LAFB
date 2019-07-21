@@ -83,6 +83,8 @@ To get started you will need to find the **administrative password** to get into
 
 `kubectl exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword`
 
+![admin_password](https://github.com/biomiller/LAFB/blob/readme/readme_images/admin_password.png)
+
 Once you enter the password, follow the prompts to install all necessary plugins for Jenkins (this may take a few minutes).
 After this you may choose to create a login account or continue as an administrator, for this tutorial we shall continue as an administrator with the following **login credentials**:
 
