@@ -1,23 +1,5 @@
 # Setup Instructions
 
-## Set up a Virtual Machine (VM) in Azure
-
-In [Azure](https://azure.microsoft.com/en-gb/) log in, navigate to the **portal** and open up a new **cloud shell** instance. 
-
-`az group create --name vmGroup`
-
-Create a new Linux **Virtual Machine (VM)** named **Machine1**:
-
-`az vm create -g vmGroup --name Machine1 --image UbuntuLts --generate-ssh-keys`
-
-To load into this new VM you will need to find its **IP address** with the following:
-
-`az vm list-ip-addresses -g vmGroup -n Machine1 | grep ipAddress | cut -d '"' -f4 `
-
-Now load into the VM:
-
-`ssh IP_address`
-
 ## Clone this repository to your new VM 
 
 In the cloud shell:
@@ -27,12 +9,6 @@ In the cloud shell:
 Change directory into LAFB:
 
 `cd LAFB`
-
-## Instal Docker and Docker-compose onto your machine
-
-## Set up a docker-compose job
-
-## Set up a docker-swarm job
 
 ## Set up an Azure Kubernetes Service
 
@@ -103,6 +79,34 @@ Restart the Jenkins container:
 `docker restart jenkins`
 
 ## Set up a freestyle job in Jenkins
+Access Jenkins through the websites public IP that you acquired in a previous section: 
+
+`Public_IP/jenkins/`
+
+To get started you will need to find the **administrative password** to get into Jenkins: 
+
+`kubectl exec jenkins cat /var/jenkins_home/secrets/initialAdminPassword`
+
+Once you enter the password, follow the prompts to install all necessary plugins for Jenkins (this may take a few minutes).
+After this you may choose to create a login account or continue as an administrator, for this tutorial we shall continue as an administrator with the following **login credentials**:
+`Username: admin`
+`Password: admin`
+
+As the Jenkins home page loads, you will be prompted to create a new job, for this, we shall be going with a **freestyle job**, upon creating the job you shall be moved into the configuration page.
+Inside this, there are several features that we would like to change, the first of which is the **source code management**.
+For this example we are using a git repository selecting the git option you will be prompted to enter a git URL and specify which branch to look as shown in the image below
+
+---------INSERT IMAGE--------
+
+Enter the git URL for this repository as shown. When **specifying branches**, the master branch is added by default, however, this can be replaced with another branch that you are working on or other branches that you are developing on. 
+Next, we want to tell Jenkins what to do when building the application, therefore we want to specify how we are going to build the job with a list of shell commands.
+
+---------INSERT IMAGE--------
+
+Select the option as in the image above and insert the build commands for the containerisation project you wish to deploy. Scripts for [docker-compose](https://github.com/biomiller/LAFB/blob/master/scripts/compose.sh), [docker swarm](https://github.com/biomiller/LAFB/blob/master/scripts/swarm.sh) and [Kuberntes](https://github.com/biomiller/LAFB/blob/master/scripts/kubernetes.sh) can be found in the links. 
+
+Apply and save your changes to the configuration and now your job is ready to build. When you are returned to the home page for your job select the build now option and wait while your job builds (Note first-time builds will take significantly longer due download times compared than future builds).
+**Congratulations** you have now built your first Jenkins job.
 
 ## Creating a Webhook for the Jenkins job
 
