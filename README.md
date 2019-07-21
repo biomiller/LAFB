@@ -1,6 +1,6 @@
 # Setup Instructions
 
-## Clone this repository to your new VM 
+## Clone this repository
 
 In the cloud shell:
 
