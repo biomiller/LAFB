@@ -129,7 +129,7 @@ pipeline{
                 }           
                 stage('---set-textgen---'){
                         steps{
-                                sh "kubectl set image deployments/text-generator text-generator=teamdeadweight/text_generator:2charr"
+                                sh "kubectl set image deployments/text-generator text-generator=teamdeadweight/text_generator:2char"
                                 //sh "kubectl set image deployments/text-generator text-generator=teamdeadweight/text_generator:3char"
                         }
                 }                
