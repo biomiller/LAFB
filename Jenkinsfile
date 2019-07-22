@@ -129,14 +129,14 @@ pipeline{
                 }           
                 stage('---set-textgen---'){
                         steps{
-                                sh "kubectl set image deployments/text-generator text-generator=teamdeadweight/text_generator:2char"
-                                //sh "kubectl set image deployments/text-generator text-generator=teamdeadweight/text_generator:3char"
+                                //sh "kubectl set image deployments/text-generator text-generator=teamdeadweight/text_generator:2char"
+                                sh "kubectl set image deployments/text-generator text-generator=teamdeadweight/text_generator:3char"
                         }
                 }                
                 stage('---set-numgen---'){
                         steps{
-                                //sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:8digit"
-                                sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:6digit"
+                                sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:8digit"
+                                //sh "kubectl set image deployments/number-generator number-generator=teamdeadweight/number_generator:6digit"
                         }
                 }                
         }
