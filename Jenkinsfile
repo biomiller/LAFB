@@ -1,7 +1,7 @@
 pipeline{
         agent any
         stages{
-                stage('---build-mongo---'){
+                stage('---build-mongo-stuff---'){
                         steps{
                                 sh "sudo docker-compose build mongo"
                         }
