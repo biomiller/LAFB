@@ -1,6 +1,6 @@
 # Little Anchorage First Bank (LAFB)
 
-To see our justifications in software choices please read our [cloud implementation documentation]:(https://github.com/biomiller/LAFB/blob/master/Little%20Anchorage%20Financial%20Bank%20(LAFB)_v2-%20Cloud%20implementation.pdf)
+To see our justifications in software choices please read our [cloud implementation documentation](https://github.com/biomiller/LAFB/blob/master/Little%20Anchorage%20Financial%20Bank%20(LAFB)_v2-%20Cloud%20implementation.pdf)
 
 ## Old Architecture:
 
